@@ -1,8 +1,13 @@
 # insert_template_on_overleaf
 Chrome extension for inserting LaTeX templates on Overleaf
 
-## 
-![overleaf_insert_template](https://user-images.githubusercontent.com/69344399/155386995-e2f45b4f-1659-4252-a2c4-399d144ffc25.gif)
+## 機能
+
+### ショートカットキーで変換
+<img src="https://user-images.githubusercontent.com/57741113/155802496-dae180b8-327a-4924-b855-e35b22bc6a76.gif" width="500">
+
+### 右クリックで挿入
+<img src="https://user-images.githubusercontent.com/57741113/155802513-d88a4276-573a-43d8-871a-a0796f62bca5.gif" width="500">
 
 ## 使い方
 
@@ -17,14 +22,17 @@ git clone https://github.com/hooked_on_mas/insert_template_on_overleaf.git
 2. デベロッパーモードをオンにする
 3. 「パッケージ化されていない拡張機能を読み込む」を押し，このフォルダを選択
 
-### Overleafでの使い方
+### ショートカットキーで変換
 
 1. fig または tbl と打つ．
 2. 「Ctrl + Shift + ←」を押すと，それらが選択される
 3. 「Ctrl + Shift + Enter」
 
-### 今後追加したい機能
+### テンプレートの追加
+<img src="https://user-images.githubusercontent.com/57741113/155800803-f5ddb1ea-fb3d-422b-b293-c7c4f2ecf120.gif" width="500">
 
-- ポップアップからテンプレの追加・変更
-- 複数の図表
-- コマンドの変更に対応
+### テンプレートの編集
+<img src="https://user-images.githubusercontent.com/57741113/155800832-f948c7a7-086f-4ee5-84e5-ef29949ae248.gif" width="500">
+
+### テンプレートの削除
+<img src="https://user-images.githubusercontent.com/57741113/155800859-c7bdcadc-74a3-45b6-aae4-ff59b4911c1f.gif" width="500">
