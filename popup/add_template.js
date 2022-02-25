@@ -1,10 +1,6 @@
 // エディタについての設定  
 let editor = ace.edit("editor");
-editor.setFontSize(12);
-// editor.getSession().setMode('ace/mode/latex');
-// editor.getSession().setUseWrapMode(true);
-// editor.getSession().setTabSize(4);
-// editor.$blockScrolling = Infinity;
+editor.setFontSize(14);
 
 // デフォルトでテンプレートを設定．
 let default_data = {
@@ -13,11 +9,44 @@ let default_data = {
 };
 chrome.storage.local.set(default_data, function(){});
 
+
+let id = document.getElementById('title_mode');
+chrome.storage.local.get(null, ((data) => {
+    for (let title in data){
+        var element = document.createElement('option');
+        element.setAttribute('value', title);
+        element.innerHTML = title;
+        id.appendChild( element );
+    }
+}));
+
+let select = document.querySelector('[name="title_mode"]');
+select.onchange = event => { 
+    console.log(select.selectedIndex)
+    if (select.selectedIndex == 0){
+        $('#title_text').val('');
+        editor.setValue('');
+    } else {
+        chrome.storage.local.get(select.value, function (value) {
+            $('#title_text').val(select.value);
+            editor.setValue(value[select.value]);
+        });
+    }
+}
+
 //保存ボタンが押されたとき
 let new_data = {};
 $('#save').on('click', function(){
-    new_data[$('#title').val()] = editor.getValue();
+    if ($('#title_text').val() == "") {
+        alert('タイトルを入力してください．');
+    } else if (editor.getValue() == "") {
+        alert('挿入するコードを入力してください．');        
+    } else {
+    new_data[$('#title_text').val()] = editor.getValue();
     chrome.storage.local.set(new_data, function(){
         alert('保存が完了しました');
     });
+    $('#title_text').val('');
+    editor.setValue('');
+    }
 });

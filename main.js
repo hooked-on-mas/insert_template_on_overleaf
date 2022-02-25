@@ -1,4 +1,4 @@
-let default_template = chrome.storage.local.get(null, ((data) => {
+chrome.storage.local.get(null, ((data) => {
     for (let title in data){
         add_insert_template_script(title, data[title])
     }
