@@ -5,10 +5,11 @@
 ## 機能
 
 ### ショートカットキーで変換
+|
 <img src="https://user-images.githubusercontent.com/57741113/155802496-dae180b8-327a-4924-b855-e35b22bc6a76.gif" width="500">
 
 ### 右クリックで挿入
-<img src="https://user-images.githubusercontent.com/57741113/155802513-d88a4276-573a-43d8-871a-a0796f62bca5.gif" width="500">
+<img src="https://user-images.githubusercontent.com/57741113/155804549-fda5a680-ac55-4642-ab1f-9f616eaf7d39.gif" width="500">
 
 ## 使い方
 
