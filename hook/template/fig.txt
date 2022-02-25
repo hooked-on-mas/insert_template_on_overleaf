@@ -1,0 +1,8 @@
+\begin{figure}[hbtp]
+	\centering
+	\includegraphics[keepaspectratio, width=8cm]{./}
+	\caption{}
+	\label{fig:}
+\end{figure}
+
+\\begin{figure}[hbtp]\n\t\\centering\n\t\\includegraphics[keepaspectratio, width=8cm]{./}\n\t\\caption{}\n\t\\label{fig:}\n\\end{figure}
