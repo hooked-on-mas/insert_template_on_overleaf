@@ -1,9 +1,3 @@
-<<<<<<< Updated upstream
-const script = document.createElement('script');
-script.type = 'text/javascript';
-script.innerHTML = '$(window).keydown(function (e) {if (event.shiftKey && event.ctrlKey && e.keyCode == 13) {let comm = _ide.editorManager.$scope.editor.sharejs_doc.ace.getCopyText();if (comm == \'fig\') {_ide.editorManager.$scope.editor.sharejs_doc.ace.insert(\'\\\\' + 'begin{figure}[hbtp]\\n\t\\\\' + 'centering\\n\t\\\\' + 'includegraphics[keepaspectratio, width=8cm]{./}\\n\t\\\\' + 'caption{}\\n\t\\\\' + 'label{fig:}\\n\\\\' + 'end{figure}\');}else if(comm == \'tbl\'){_ide.editorManager.$scope.editor.sharejs_doc.ace.insert(\'\\\\' + 'begin{table}[hbtp]\\n\t\\\\' + 'caption{}\\n\t\\\\' + 'label{tbl:}\\n\t\\\\' + 'centering\\n\t\\\\' + 'begin{tabular}{ccc}\\n\t\t\\\\' + 'hline\\n\t\ta  & b  &  c  \\\\' + '\\\\' + '\\n\t\t\\\\' + 'hline\\\\' + 'hline\\n\t\t1  & 2  & 3 \\\\' + '\\\\' + '\\n\t\t\\\\' + 'hline\\n\t\\\\' + 'end{tabular}\\n\\\\' + 'end{table}\');}return false;}});';
-(document.head || document.documentElement).appendChild(script);
-=======
 // コンテキストメニューが押された時，それを挿入する
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
     chrome.storage.local.get(message, function (data) {
@@ -22,7 +16,6 @@ function add_insert_template_script_shortcut(title, content) {
     /*
         Function : 
             --- add a javascript code to insert a template to html when shift, ctrl and enter are hit
-
         Input
             - title   (String)
             - content (String)
@@ -109,4 +102,3 @@ function make_script(title, content) {
 function add_double_escape_sequence(str) {
     return str.replace(/\\/g, '\\\\').replace(/\n/g, '\\n');
 }
->>>>>>> Stashed changes

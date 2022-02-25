@@ -1,3 +1,9 @@
+function getClickHandler() {
+    return function(info, tab) {
+        alert("クリックされました");
+    };
+};
+
 let parent = chrome.contextMenus.create({
     id : "parent",
     title : "LaTeX template",
