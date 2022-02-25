@@ -1,5 +1,7 @@
-# insert_template_on_overleaf
-Chrome extension for inserting LaTeX templates on Overleaf
+# insert template on overleaf
+Chrome extension for inserting LaTeX templates on Overleaf  
+図や表などのテンプレートを簡単に挿入できるChrome拡張機能．  
+テンプレートの追加・編集も可能．
 
 ## 機能
 
