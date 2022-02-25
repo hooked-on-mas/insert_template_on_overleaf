@@ -1,10 +1,17 @@
-const title = 'fig';
-let content = '\\begin{figure}[hbtp]\n\t\\centering\n\t\\includegraphics[keepaspectratio, width=8cm]{./}\n\t\\caption{}\n\t\\label{fig:}\n\\end{figure}';
+let default_template = chrome.storage.local.get(null, ((data) => {
+    for (let title in data){
+        add_insert_template_script(title, data[title])
+    }
+}));
 
-// table
-// script.innerHTML = '$(window).keydown(function (e) {if (event.shiftKey && event.ctrlKey && e.keyCode == 13) {let comm = _ide.editorManager.$scope.editor.sharejs_doc.ace.getCopyText();if(comm == \'tbl\'){_ide.editorManager.$scope.editor.sharejs_doc.ace.insert(\'\\\\' + 'begin{table}[hbtp]\\n\t\\\\' + 'caption{}\\n\t\\\\' + 'label{tbl:}\\n\t\\\\' + 'centering\\n\t\\\\' + 'begin{tabular}{ccc}\\n\t\t\\\\' + 'hline\\n\t\ta  & b  &  c  \\\\' + '\\\\' + '\\n\t\t\\\\' + 'hline\\\\' + 'hline\\n\t\t1  & 2  & 3 \\\\' + '\\\\' + '\\n\t\t\\\\' + 'hline\\n\t\\\\' + 'end{tabular}\\n\\\\' + 'end{table}\');}return false;}});';
+// const title_fig = 'fig';
+// let content_fig = '\\begin{figure}[hbtp]\n\t\\centering\n\t\\includegraphics[keepaspectratio, width=8cm]{./}\n\t\\caption{}\n\t\\label{fig:}\n\\end{figure}';
 
-add_insert_template_script(title, content)
+// const title_tbl = 'table';
+// let content_tbl = '\\begin{table}[hbtp]\n\t\\caption{}\n\t\\label{tbl:}\n\t\\centering\n\t\\begin{tabular}{ccc}\n\t\t\\hline\n\t\ta & b & c \\\\\n\t\t\\hline\\hline\n\t\t1 & 2 & 3 \\\\\n\t\t\\hline\n\t\\end{tabular}\n\\end{table}';
+
+// add_insert_template_script(title_fig, content_fig)
+// add_insert_template_script(title_tbl, content_tbl)
 
 function add_insert_template_script(title, content) {    
     /*
