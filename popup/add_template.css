@@ -1,5 +1,4 @@
 body{
-    font-size:20px;
     background-color:#455265;
 }
 
@@ -7,6 +6,8 @@ h1{
     font-size:20px;
     color:#ffffff;
     padding-left: 0.5em;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
     background-color: #138A07;
 }
 
@@ -16,13 +17,17 @@ h1{
     background-color: #1E2530;
     font-family: sans-serif;
 }
+#title_mode{
+    width: 100px;
+    font-size: 12px;
+    font-family: sans-serif;
+}
 
 #title_text{
     width: 500px;
     height: 16px;
-    font-size: 16px;
+    font-size: 12px;
     background-color: #ffffff;
-    border: 4px;
     white-space: nowrap;
     font-family: sans-serif;
 }
@@ -30,7 +35,6 @@ h1{
 #editor{
     width: 500px;
     height: 300px;
-    border: 4px;
 }
   
 input {
