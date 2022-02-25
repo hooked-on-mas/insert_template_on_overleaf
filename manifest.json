@@ -3,6 +3,12 @@
     "version": "1.0", 
     "manifest_version": 2, 
     "description": "Insert LaTeX templates on Overleaf",
+    "externally_connectable": {
+        "matches": [
+          "https://*.overleaf.com/project/*"
+        ]
+    },
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
     "content_scripts": [
         {
             "run_at":"document_end",
