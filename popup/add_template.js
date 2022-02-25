@@ -9,7 +9,7 @@ let default_data = {
 };
 chrome.storage.local.set(default_data, function(){});
 
-
+// 既にあるコマンドを選択式メニューに追加
 let id = document.getElementById('title_mode');
 chrome.storage.local.get(null, ((data) => {
     for (let title in data){
@@ -20,6 +20,7 @@ chrome.storage.local.get(null, ((data) => {
     }
 }));
 
+// 選択されたメニューに対する挿入句を入れる
 let select = document.querySelector('[name="title_mode"]');
 select.onchange = event => { 
     console.log(select.selectedIndex)
@@ -34,18 +35,29 @@ select.onchange = event => {
     }
 }
 
-//保存ボタンが押されたとき
+// 保存ボタンが押されたとき
 let new_data = {};
 $('#save').on('click', function(){
-    if ($('#title_text').val() == "") {
+
+    let title = $('#title_text').val();
+    
+    if (title == "") {
         alert('タイトルを入力してください．');
+
     } else if (editor.getValue() == "") {
-        alert('挿入するコードを入力してください．');        
+        alert('挿入するコードを入力してください．');       
+
     } else {
-    new_data[$('#title_text').val()] = editor.getValue();
-    chrome.storage.local.set(new_data, function(){
+        new_data[title] = editor.getValue();
+        chrome.storage.local.set(new_data, function(){
         alert('保存が完了しました');
+        alert(title)
     });
+
+    // background.js に新しいテンプレのコンテキストメニューを追加するための情報を提供
+    chrome.runtime.sendMessage(title, function (){});
+
+    // テキストボックスをリセット
     $('#title_text').val('');
     editor.setValue('');
     }
