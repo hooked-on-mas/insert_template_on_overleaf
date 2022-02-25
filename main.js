@@ -1,12 +1,9 @@
 const shortcut_key = 13;
 
-// const title = 'beg';
-// let content = '\begin\n\thello'; // '\\\\' + 'begin\\n\thello'
-// content = content.replace('\b', '\\\\b').replace('\n', '\\n');
-
 const title = 'fig';
-// let content = '\begin{figure}[hbtp]\n\t\centering\n\t\includegraphics[keepaspectratio, width=8cm]{./}\n\t\caption{}\n\t\label{fig:}\n\end{figure}';
-const content = '\\\\begin{figure}[hbtp]\\n\t\\\\centering\\n\t\\\\includegraphics[keepaspectratio, width=8cm]{./}\\n\t\\\\caption{}\\n\t\\\\label{fig:}\\n\\\\end{figure}';
+let content = '\\begin{figure}[hbtp]\n\t\\centering\n\t\\includegraphics[keepaspectratio, width=8cm]{./}\n\t\\caption{}\n\t\\label{fig:}\n\\end{figure}';
+
+// const content = '\\\\begin{figure}[hbtp]\\n\t\\\\centering\\n\t\\\\includegraphics[keepaspectratio, width=8cm]{./}\\n\t\\\\caption{}\\n\t\\\\label{fig:}\\n\\\\end{figure}';
 
 
 
@@ -38,6 +35,10 @@ function make_script(title, content) {
     const com_end =     '}return false;';
     const tri_end = '}';
     const key_end = '});';
-    const script = key_eve + tri_con + get_com + com_con + ins_fun + con_bra + content + con_bra + ins_end + com_end + tri_end + key_end;
+    const script = key_eve + tri_con + get_com + com_con + ins_fun + con_bra + add_double_escape_sequence(content) + con_bra + ins_end + com_end + tri_end + key_end;
     return script
-  }
+}
+
+function add_double_escape_sequence(str) {
+    return str.replace(/\\/g, '\\\\').replace(/\n/g, '\\n');
+}
