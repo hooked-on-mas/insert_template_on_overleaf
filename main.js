@@ -4,15 +4,6 @@ let default_template = chrome.storage.local.get(null, ((data) => {
     }
 }));
 
-// const title_fig = 'fig';
-// let content_fig = '\\begin{figure}[hbtp]\n\t\\centering\n\t\\includegraphics[keepaspectratio, width=8cm]{./}\n\t\\caption{}\n\t\\label{fig:}\n\\end{figure}';
-
-// const title_tbl = 'table';
-// let content_tbl = '\\begin{table}[hbtp]\n\t\\caption{}\n\t\\label{tbl:}\n\t\\centering\n\t\\begin{tabular}{ccc}\n\t\t\\hline\n\t\ta & b & c \\\\\n\t\t\\hline\\hline\n\t\t1 & 2 & 3 \\\\\n\t\t\\hline\n\t\\end{tabular}\n\\end{table}';
-
-// add_insert_template_script(title_fig, content_fig)
-// add_insert_template_script(title_tbl, content_tbl)
-
 function add_insert_template_script(title, content) {    
     /*
         Function : 
