@@ -23,7 +23,6 @@ chrome.storage.local.get(null, ((data) => {
 // 選択されたメニューに対する挿入句を入れる
 let select = document.querySelector('[name="title_mode"]');
 select.onchange = event => { 
-    console.log(select.selectedIndex)
     if (select.selectedIndex == 0){
         $('#title_text').val('');
         editor.setValue('');
@@ -36,10 +35,10 @@ select.onchange = event => {
 }
 
 // 保存ボタンが押されたとき
-let new_data = {};
 $('#save').on('click', function(){
 
     let title = $('#title_text').val();
+    let new_data = {};
     
     if (title == "") {
         alert('タイトルを入力してください．');
@@ -51,7 +50,6 @@ $('#save').on('click', function(){
         new_data[title] = editor.getValue();
         chrome.storage.local.set(new_data, function(){
         alert('保存が完了しました');
-        alert(title)
     });
 
     // background.js に新しいテンプレのコンテキストメニューを追加するための情報を提供
@@ -60,5 +58,61 @@ $('#save').on('click', function(){
     // テキストボックスをリセット
     $('#title_text').val('');
     editor.setValue('');
+    }
+});
+
+// 設定ボタンが押されたとき
+let onoff = 0;
+const settings_div = document.getElementById('settings');
+
+$('#setting_button').on('click', function(){
+    if (onoff == 0) {
+
+        // コマンドを削除する設定
+        let setting1 = document.createElement('h2');
+        setting1.textContent = 'コマンドを削除';
+        setting1.setAttribute("id", "delete");
+        settings_div.appendChild(setting1);
+
+        // コマンドの選択メニュー
+        let set1_select = document.createElement('select');
+        set1_select.setAttribute("id", "deleted_item");
+        set1_select.setAttribute("name", "deleted_item");
+        set1_select.setAttribute("class", "sel");
+        chrome.storage.local.get(null, ((data) => {
+            for (let title in data){
+                var element = document.createElement('option');
+                element.setAttribute('value', title);
+                element.innerHTML = title;
+                set1_select.appendChild( element );
+            }
+        }));
+        settings_div.appendChild(set1_select);
+
+        // 削除ボタン
+        let set1_button = document.createElement('input');
+        set1_button.id = "delete_button";
+        set1_button.type = "button";
+        set1_button.value = "削除";
+        settings_div.appendChild(set1_button);
+        
+
+        // 削除ボタンが押されたとき
+        $('#delete_button').on('click', function(){
+            
+            let deleted_item = document.getElementById("deleted_item");
+            let selected_idx = deleted_item.selectedIndex;
+
+            // chrome storage から削除
+            chrome.storage.local.remove([deleted_item.options[selected_idx].value], function(msg){return true;});
+            deleted_item.remove(selected_idx);
+            $('#settings').empty()
+
+        });
+
+        onoff = 1;
+    } else if (onoff == 1) {
+        $('#settings').empty()
+        onoff = 0;
     }
 });

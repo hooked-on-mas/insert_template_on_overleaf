@@ -1,11 +1,6 @@
-console.log("start")
-
 // コンテキストメニューが押された時，それを挿入する
 chrome.runtime.onMessage.addListener(function(message, sender, sendResponse){
-    console.log("received")
     chrome.storage.local.get(message, function (data) {
-        console.log(message)
-        console.log(data[message])
         insert_template_script(message, data[message])
     });
     sendResponse("done")

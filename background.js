@@ -26,7 +26,7 @@ chrome.storage.local.get(null, ((data) => {
 // ボタンが押されたら，content scriptに挿入するように言う．
 chrome.contextMenus.onClicked.addListener(function(item){
     chrome.tabs.query( {active:true, currentWindow:true}, function(tabs){
-        chrome.tabs.sendMessage(tabs[0].id, item.menuItemId, function(mes){console.log(mes)});
+        chrome.tabs.sendMessage(tabs[0].id, item.menuItemId, function(mes){});
       });
 });
 
