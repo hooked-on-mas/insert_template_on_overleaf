@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>add a template</title>
+  <link rel="stylesheet" href="add_template.css">
+</head>
+
+<body>
+    <div id="'header"></div>
+    <h1>コマンド名</h1>
+    <select id="title_mode" name="title_mode" class="sel">
+      <option value="new">新規作成</option>
+    </select>
+    <textarea id='title_text' placeholder="コマンド名を入力 (e.g. fig)"></textarea>
+
+    <h1>挿入するコード</h1>
+    <div id="editor"></div>
+    <script src="../lib/ace-min-noconflict/ace.js"></script>
+    <input type='button' id='save' value='テンプレートを保存'>
+    <input type='button' id='setting_button' value='設定'>
+
+    <div id="settings"></div>
+
+    <script src='../lib/jquery-3.6.0.min.js'></script>
+    <script src='add_template.js'></script>
+</body>
+</html>

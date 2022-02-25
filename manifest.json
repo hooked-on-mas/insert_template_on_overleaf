@@ -1,8 +1,17 @@
 {
     "name": "Inserter of LaTeX templates on Overleaf", 
-    "version": "1.0", 
+    "version": "1.1", 
     "manifest_version": 2, 
     "description": "Insert LaTeX templates on Overleaf",
+    "permissions": ["tabs","storage", "background", "contextMenus"],
+    "browser_action": {
+      "default_title": "add a template",
+      "default_popup": "popup/add_template.html"
+    },
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
     "content_scripts": [
         {
             "run_at":"document_end",
