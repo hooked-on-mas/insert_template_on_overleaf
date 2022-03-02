@@ -53,7 +53,7 @@ $('#save').on('click', function(){
     });
 
     // background.js に新しいテンプレのコンテキストメニューを追加するための情報を提供
-    chrome.runtime.sendMessage(title, function (){});
+    chrome.runtime.sendMessage(title, function (mes){});
 
     // テキストボックスをリセット
     $('#title_text').val('');

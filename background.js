@@ -34,7 +34,7 @@ chrome.runtime.onInstalled.addListener(() => {
             parentId : parent,
             contexts : ["editable"]
         });
-        return true
+        sendResponse("done")
     })
 
   });
