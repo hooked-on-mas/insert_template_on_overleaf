@@ -1,4 +1,4 @@
-chrome.runtime.onInstalled.addListener(() => {
+// chrome.runtime.onInstalled.addListener(() => {
     let parent = chrome.contextMenus.create({
         id : "parent",
         title : "LaTeX template",
@@ -20,8 +20,10 @@ chrome.runtime.onInstalled.addListener(() => {
 
     // ボタンが押されたら，content scriptに挿入するように言う．
     chrome.contextMenus.onClicked.addListener(function(item){
+        console.log('right clicked')
         chrome.tabs.query( {active:true, currentWindow:true}, function(tabs){
             chrome.tabs.sendMessage(tabs[0].id, item.menuItemId, function(mes){});
+            console.log(item.menuItemId)
         });
     });
 
@@ -37,4 +39,4 @@ chrome.runtime.onInstalled.addListener(() => {
         sendResponse("done")
     })
 
-  });
+//   });
